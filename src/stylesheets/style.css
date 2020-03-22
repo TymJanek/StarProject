@@ -1,0 +1,51 @@
+.root{
+    -fx-background-color: #2A628F;
+    -fx-font-family: 'DejaVu Sans Mono', monospace;
+}
+
+.label{
+    -fx-background-color: #3E92CC;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-pref-height: 200px;
+    -fx-pref-width: 180px;
+    -fx-max-width: 1800px;
+    -fx-font-size: 15px;
+    -fx-padding: 10;
+    -fx-border-insets: 20px;
+    -fx-background-insets: 20px;
+    -fx-text-fill: #1e3a63;
+}
+
+
+.button{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-background-insets: 20,10,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-pref-width: 130px;
+    -fx-border-insets: 20px;
+
+}
+
+.button:pressed{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#395cab, #223768),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#7ebcea, #2f4b8f);
+}
+
+.button:hover{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#3E92CC, #2A628F),
+            linear-gradient(#3E92CC, #2A628F),
+            linear-gradient(#7ebcea, #2f4b8f);
+}
