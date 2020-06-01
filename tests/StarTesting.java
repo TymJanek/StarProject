@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import static org.junit.Assert.*;
 
-public class Testing {
+public class StarTesting {
 
     Star star = new Star("ABC1234",new Declination(40,50,10),new RightAscension(20,50,10), 6.1, 9.0, "Andromeda", "PN", 50000, 25);
 

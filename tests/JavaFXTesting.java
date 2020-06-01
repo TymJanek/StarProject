@@ -1,39 +1,23 @@
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.loadui.testfx.GuiTest;
-import org.loadui.testfx.controls.TextInputControls;
-import org.testfx.api.FxRobotException;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.loadui.testfx.Assertions.assertNodeExists;
 import static org.loadui.testfx.GuiTest.find;
 import static org.testfx.api.FxAssert.verifyThat;
-import static org.testfx.util.NodeQueryUtils.isVisible;
 
 
-public class MyAppTest extends ApplicationTest {
+public class JavaFXTesting extends ApplicationTest {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -48,12 +32,11 @@ public class MyAppTest extends ApplicationTest {
         scene1.getStylesheets().add("stylesheets/style.css");
         stage.setScene(scene1);
         stage.show();
-
     }
 
     @Before
-    public void setUp() throws Exception{
-        MyAppTest.launch(MyApp.class);
+    public void setUp() throws Exception {
+        JavaFXTesting.launch(MyApp.class);
     }
 
     @After
@@ -64,13 +47,13 @@ public class MyAppTest extends ApplicationTest {
     }
 
     @Test
-    public void testTextFieldInput () {
+    public void testTextFieldInput() {
         clickOn("#inputField");
         write("this is a test");
     }
 
     @Test
-    public void testLabelResult() throws InterruptedException {
+    public void addingStarsAndDisplayingInLabelTest() throws InterruptedException {
         clickOn("#buttonAdd");
         clickOn("#inputField");
         write("All stars will be shown below");
@@ -79,7 +62,7 @@ public class MyAppTest extends ApplicationTest {
     }
 
     @Test
-    public void testEmptyLabelOnDisplayResult() throws InterruptedException {
+    public void displayingNothingRemovingAndDisplayingInLabelTest() throws InterruptedException {
         clickOn("#buttonDisplay");
         Thread.sleep(500);
         clickOn("#buttonRemove");
@@ -91,16 +74,13 @@ public class MyAppTest extends ApplicationTest {
     }
 
     @Test
-    public void testRemovingStarsFromDisplaying() throws InterruptedException {
-        testLabelResult();
+    public void addingDisplayingRemovingDisplayingInLabelTest() throws InterruptedException {
+        addingStarsAndDisplayingInLabelTest();
         clickOn("#buttonRemove");
         clickOn("#inputField");
-//        TextField textField = (TextField) GuiTest.find("#inputField");
-//        textField.clear();
-        write("None stars");
+        write("               Now none of the stars should be shown below");
         clickOn("#buttonDisplay");
         Thread.sleep(1000);
     }
-
 
 }
