@@ -6,6 +6,5 @@ public class Main{
 
         Application.launch(MyApp.class, args);
 
-
     }
 }

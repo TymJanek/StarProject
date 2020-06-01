@@ -37,5 +37,46 @@ public class Factory {
         return Arrays.toString(tab).replace(",", "\n").replace("[", " ").replace("]", "");
     }
 
+    public static List<Star> remove(){
+        List<Star> list = new ArrayList<>();
+        return list;
+    }
+
+    public static void saveStarsToFile(List<Star> list, String filepath){
+        ObjectOutputStream oos;
+        try{
+            oos = new ObjectOutputStream(new FileOutputStream(filepath));
+            for(Star values : list){
+                oos.writeObject(values);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Star> readFromFile(String filePath) {
+        List<Star> list = new ArrayList<>();
+        ObjectInputStream ois;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(filePath));
+            Object obj;
+            while ((obj = ois.readObject()) != null) {
+                if (obj instanceof Star) {
+                    {
+                        list.add((Star) obj);
+                    }
+                }
+            }
+
+        } catch (EOFException eof) {
+            //
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
 
 }

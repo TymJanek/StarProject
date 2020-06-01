@@ -171,6 +171,45 @@ public class Star implements Serializable {
         return mass;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDeclination(Declination declination) {
+        this.declination = declination;
+    }
+
+    public void setRightAscension(RightAscension rightAscension) {
+        this.rightAscension = rightAscension;
+    }
+
+    public void setObservedMagnitude(double observedMagnitude) {
+        this.observedMagnitude = observedMagnitude;
+    }
+
+    public void setAbsoluteMagnitude(double absoluteMagnitude) {
+        this.absoluteMagnitude = absoluteMagnitude;
+    }
+
+    public void setConstellation(String constellation) {
+        this.constellation = constellation;
+    }
+
+    public void setHemisphere(String hemisphere) {
+        this.hemisphere = hemisphere;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public void setMass(double mass) {
+        this.mass = mass;
+    }
+
+    public static void setDf(DecimalFormat df) {
+        Star.df = df;
+    }
 
     //constructor
     public Star(String name, Declination declination, RightAscension rightAscension, double observedMagnitude, double lightYearsDistance, String constellation, String hemisphere, double temperature, double mass) {
